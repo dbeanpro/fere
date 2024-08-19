@@ -27,8 +27,9 @@ p, h1, h2, h3, h4, h5, h6 {
     @ https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
-
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ELEMENTS */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 body {
     background-image: url("../img/bg.png");
     background-size: cover;
@@ -42,13 +43,22 @@ header {
     padding: 1rem;
     margin-top: 1rem;
     background-color: rgba(240, 248, 255, 0.856);
-    width: 80vw;
+    width: 75vw;
 }
 
 textarea {
     resize: none;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+table {
+    table-layout: fixed;
+}
+
+tbody {
+    overflow: hidden;
+    max-width: 100%;
 }
 
 input[type="text"] {
@@ -63,7 +73,9 @@ button:hover {
     cursor: pointer;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* CLASSES */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .centerFlex {
     display: flex;
     flex-direction: column;
@@ -95,24 +107,39 @@ button:hover {
     visibility: hidden;
 }
 
-@media print {
-.noPrint {
-    display: none;    
-    visibility: hidden;
-}
-}
-
 .bold {
     font-weight: bold;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ID'S */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #wrap {
     margin-top: 1rem;
-    width: 75vw;
+    width: 70vw;
     background-color: rgba(240, 248, 255, 0.856);
+    overflow: hidden;
+    position: relative;
 }
 
 #routing {
     table-layout: repeat(6, 1fr);
 }
+
+#wrap table {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* MEDIA QUERIES */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@media print {
+    .noPrint {
+        display: none;    
+        visibility: hidden;
+    }
+    }
