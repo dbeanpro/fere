@@ -47,6 +47,9 @@ header {
 
 textarea {
     resize: none;
+    padding: .5rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* CLASSES */
