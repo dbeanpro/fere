@@ -47,16 +47,23 @@ header {
 
 textarea {
     resize: none;
-    padding: .5rem;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-/* CLASSES */
-.centerText {
-    text-align: center
+input[type="text"] {
+    border-radius: 25px;
+    border: 1px solid grey;
+    padding: 0 .5rem;
+    text-align: center;
 }
 
+button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* CLASSES */
 .centerFlex {
     display: flex;
     flex-direction: column;
@@ -68,4 +75,52 @@ textarea {
     border-radius: 120px;
 }
 
+.roundMeLess {
+    border-radius: 25px;
+}
+
+.inputFormat {
+    padding: 0 .5rem;
+    text-align: center;
+}
+
+.linePrompt {
+    text-align: right !important;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
+
+.linePromptButton {
+    text-align: right !important;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+@media print {
+.noPrint {
+    display: none;    
+    visibility: hidden;
+}
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.textRight {
+    text-align: right;
+}
+
 /* ID'S */
+#wrap {
+    margin-top: 1rem;
+    width: 75vw;
+    background-color: rgba(240, 248, 255, 0.856);
+}
+
+#routing {
+    table-layout: repeat(6, 1fr);
+}

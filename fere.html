@@ -8,13 +8,53 @@
     <title>SAJ Feasibility Report</title>
 </head>
 <body class="centerFlex">
-    <header class="centerFlex roundMe">
+    <header class="centerFlex roundMeLess">
         <img src="./img/SAJ_Logo.png" alt="SAJ Feasibility Report" class="roundMe">
-        <textarea name="summaryBox" id="summaryBox" class="centerText roundMe" placeholder="Client | Tail # | Route | Date | Trip #" cols="50" rows="2"></textarea>
+        <textarea name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold" placeholder="Client | Tail # | Route | Date | Trip #" cols="50" rows="2"></textarea>
     </header>
-    <main>
-        <div class="wrap">
-            <table id="intro"></table>
+    <main class="centerFlex">
+        <div id="wrap" class="roundMeLess">
+            <table id="routing" class="centerFlex">
+                    <tr>
+                        <td class="linePrompt">Airport Identifier</td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                    </tr>
+                <tbody id="routingTwo" class="hidden">
+                    <tr>
+                        <td class="linePrompt">Airport Identifier</td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                        <td><input type="text" placeholder="ICAO"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                        <td><input type="text" placeholder="ETA / ETD"></td>
+                    </tr>                    
+                </tbody>
+                <tr>
+                    <td id="routingButton" class="textRight noPrint"><button class="roundMe" onclick="reveal('routingTwo')">Continued</button></td>
+                </tr>
+            </table>
+            <table id="details"></table>
+            <table id="weather"></table>
             <table id="meat"></table>
         </div>
     </main>
