@@ -52,15 +52,6 @@ textarea {
     overflow-y: hidden;
 }
 
-table {
-    table-layout: fixed;
-}
-
-tbody {
-    overflow: hidden;
-    max-width: 100%;
-}
-
 input[type="text"] {
     border-radius: 25px;
     border: 1px solid grey;
@@ -123,15 +114,7 @@ button:hover {
 }
 
 #routing {
-    table-layout: repeat(6, 1fr);
-}
-
-#wrap table {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
+    table-layout: fixed;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
