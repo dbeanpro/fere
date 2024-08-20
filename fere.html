@@ -13,7 +13,7 @@
         <textarea name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold" placeholder="Client | Tail # | Route | Date | Trip #" cols="50" rows="2"></textarea>
     </header>
     <main class="centerFlex">
-        <div id="wrap" class="roundMeLess">
+        <div id="wrap" class="roundMeLess centerFlex">
                 <table id="routing" class="centerFlex">
                         <tr>
                             <td class="linePrompt">Airport Identifier</td>
@@ -84,6 +84,39 @@
                         <td></td>
                     </tr>
                 </tbody>
+            </table>
+            <h3>Details</h3>
+            <table id="detailsTwo">
+                <tr>
+                    <td style="width:22%;" class="linePrompt">Crew current?<br>Grace items?</td>
+                    <td style="width:4%;">YES <input type="checkbox"></td>
+                    <td style="width:4%;">NO <input type="checkbox"></td>
+                    <td style="width:70%;"><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Maintenance advised / released?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Duty and flight time limits noted?<br>added to summary?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">12+ Hours duty?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">'Red-Eye' operations? <div class="hoverPrompt">ⓘ<span class="popup">2300 - 0400 LT</span></div></td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
             </table>
             <table id="weather"></table>
             <table id="meat"></table>
