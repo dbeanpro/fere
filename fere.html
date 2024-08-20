@@ -183,7 +183,121 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="meat"></table>
+            <table id="weatherQ">
+                <tr>
+                    <td style="width:22%;" class="linePrompt">Winter weather?<br>Thunderstorms?</td>
+                    <td style="width:4%;">YES <input type="checkbox"></td>
+                    <td style="width:4%;">NO <input type="checkbox"></td>
+                    <td style="width:70%;"><input type="text" class="qAndABox"></td>
+                </tr>
+            </table>
+            <h3>Airfield Suitability</h3>
+            <table id="suitability">
+                <tr>
+                    <td style="width:22%;" class="linePrompt">NOTAM's?</td>
+                    <td style="width:4%;">YES <input type="checkbox"></td>
+                    <td style="width:4%;">NO <input type="checkbox"></td>
+                    <td style="width:70%;"><textarea class="weatherBox"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">TFR's?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Overwater / coastal ops?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">AFD reviewed?<br>Note conflicts in summary</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Daytime only?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Mountainous?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Performance Restrictions? <div class="hoverPrompt">ⓘ<span class="popup">Hot WX / Short Field / High Elevation / etc.</span></div></td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Noise limits &/or curfew compliance?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+            </table>
+            <table id="coordination">
+                <tr>
+                    <td style="width:22%;" class="linePrompt">FBO's accurate? Contacted?</td>
+                    <td style="width:4%;">YES <input type="checkbox"></td>
+                    <td style="width:4%;">NO <input type="checkbox"></td>
+                    <td style="width:70%;"><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">LAV Service available?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Hangar / de-ice available?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">PPR Required?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">PPR lead time adequate?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Are all fuel / de-ice trucks working?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Fee's recorded?<br><i>(regular & special event)</i></td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Parking available?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Is the facility IS-BAH Certified?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+            </table>
         </div>
         <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
     </main>

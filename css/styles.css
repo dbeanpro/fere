@@ -46,6 +46,11 @@ header {
     width: 75vw;
 }
 
+main,
+#wrap {
+    border-radius: 18px;
+}
+
 textarea {
     resize: none;
     overflow-x: hidden;
@@ -70,6 +75,7 @@ table {
 
 h3 {
     padding: 1vh 0;
+    font-size: 1vw;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -184,7 +190,10 @@ h3 {
     text-align: center;
 }
 
-#detailsTwo {
+#detailsTwo,
+#weatherQ,
+#suitability,
+#coordination {
     width: 90%;
 }
 
