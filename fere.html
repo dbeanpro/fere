@@ -17,11 +17,11 @@
                 <table id="routing" class="centerFlex">
                         <tr>
                             <td class="linePrompt">Airport Identifier</td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO1" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO2" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO3" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO4" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO5" placeholder="ICAO"></td>
                         </tr>
                         <tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
@@ -31,14 +31,14 @@
                             <td><input type="text" placeholder="ETA / ETD"></td>
                             <td><input type="text" placeholder="ETA / ETD"></td>
                         </tr>
-                    <tbody id="routingTwo" class="hidden">
+                    <tbody id="routingTwo" class="expanded hidden">
                         <tr>
                             <td class="linePrompt">Airport Identifier</td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
-                            <td><input type="text" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO6" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO7" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO8" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO9" placeholder="ICAO"></td>
+                            <td><input type="text" id="ICAO10" placeholder="ICAO"></td>
                         </tr>
                         <tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
@@ -50,7 +50,7 @@
                         </tr>                    
                     </tbody>
                     <tr>
-                        <td class="noPrint"><button class="roundMe" onclick="reveal('routingTwo')">Continued</button></td>
+                        <td class="noPrint"><button class="roundMe" onclick="revealClass('expanded')">Continued</button></td>
                     </tr>
                 </table>
             <table id="details" class="centerFlex">
@@ -150,7 +150,39 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="weather"></table>
+            <h3>Weather</h3>
+            <table id="weather">
+                <tr>
+                    <td><input type="text" id="ICAO1a" placeholder="ICAO"></td>
+                    <td><input type="text" id="ICAO2a" placeholder="ICAO"></td>
+                    <td><input type="text" id="ICAO3a" placeholder="ICAO"></td>
+                    <td><input type="text" id="ICAO4a" placeholder="ICAO"></td>
+                    <td><input type="text" id="ICAO5a" placeholder="ICAO"></td>
+                </tr>
+                <tr>
+                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><textarea class="weatherBox"></textarea></td>
+                </tr>
+                <tbody class="expanded hidden" id="weatherTwo">
+                    <tr>
+                        <td><input type="text" id="ICAO6a" placeholder="ICAO"></td>
+                        <td><input type="text" id="ICAO7a" placeholder="ICAO"></td>
+                        <td><input type="text" id="ICAO8a" placeholder="ICAO"></td>
+                        <td><input type="text" id="ICAO9a" placeholder="ICAO"></td>
+                        <td><input type="text" id="ICAO10a" placeholder="ICAO"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea class="weatherBox"></textarea></td>
+                        <td><textarea class="weatherBox"></textarea></td>
+                        <td><textarea class="weatherBox"></textarea></td>
+                        <td><textarea class="weatherBox"></textarea></td>
+                        <td><textarea class="weatherBox"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
             <table id="meat"></table>
         </div>
         <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
