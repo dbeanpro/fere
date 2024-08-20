@@ -64,6 +64,10 @@ button:hover {
     cursor: pointer;
 }
 
+table {
+    font-size: .8vw;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* CLASSES */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -83,7 +87,6 @@ button:hover {
 }
 
 .inputFormat {
-    padding: 0 .5rem;
     text-align: center;
 }
 
@@ -106,7 +109,7 @@ button:hover {
 /* ID'S */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #wrap {
-    margin-top: 1rem;
+    margin-top: 1vh;
     width: 70vw;
     background-color: rgba(240, 248, 255, 0.856);
     overflow: hidden;
