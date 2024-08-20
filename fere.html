@@ -117,10 +117,43 @@
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
+                <tr>
+                    <td class="linePrompt">Deconflict schedule?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Internal customer profile reviewed?</td>
+                    <td>YES <input type="checkbox"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tr>
+                    <td class="linePrompt">Is this an EJM (NetJets) trip?</td>
+                    <td>YES <input type="checkbox" onclick="reveal('netJets')"></td>
+                    <td>NO <input type="checkbox"></td>
+                    <td><input type="text" class="qAndABox"></td>
+                </tr>
+                <tbody id="netJets" class="hidden">
+                    <tr>
+                        <td class="linePrompt">In-op amenities?</td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt"><div class="hoverPrompt" onclick="reveal('crewStandards')">Crewing standards met?</div></td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                </tbody>
             </table>
             <table id="weather"></table>
             <table id="meat"></table>
         </div>
+        <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
     </main>
 </body>
 </html>
