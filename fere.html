@@ -53,7 +53,38 @@
                         <td class="noPrint"><button class="roundMe" onclick="reveal('routingTwo')">Continued</button></td>
                     </tr>
                 </table>
-            <table id="details"></table>
+            <table id="details" class="centerFlex">
+                <tbody id="detailsContainer">
+                    <tr>
+                        <td style="width:15%;"></td>
+                        <td style="width:25%;" class="bold">Crew & C.A. Assignment</td>
+                        <td style="width:15%;"></td>
+                        <td style="width:25%;" class="bold">Total Times</td>
+                        <td style="width:20%;" rowspan="4"><textarea name="crewComments" id="crewComments" placeholder="Crewing comments" class="roundMeLess"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">PIC:</td>
+                        <td><input type="text" placeholder="PIC"></td>
+                        <td class="linePrompt">Flight:</td>
+                        <td><input type="text" placeholder="Total Flight Time"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">SIC:</td>
+                        <td><input type="text" placeholder="SIC"></td>
+                        <td class="linePrompt">Duty:</td>
+                        <td><input type="text" placeholder="Total Duty Time"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Cabin Attendant</td>
+                        <td><input type="text" placeholder="C.A."></td>
+                        <td class="linePrompt">Duty off (day-prior):</td>
+                        <td><input type="text" placeholder="duty off (day prior)"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
             <table id="weather"></table>
             <table id="meat"></table>
         </div>
