@@ -10,7 +10,7 @@
 <body class="centerFlex">
     <header class="centerFlex roundMeLess">
         <img src="./img/SAJ_Logo.png" alt="SAJ Feasibility Report" class="roundMe">
-        <textarea name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold" placeholder="Client | Tail # | Route | Date | Trip #" cols="50" rows="2"></textarea>
+        <div contenteditable="true" name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold textAreaAlt">Client | Tail # | Route | Date | Trip #</div>
     </header>
     <main class="centerFlex">
         <div id="wrap" class="roundMeLess centerFlex">
@@ -60,7 +60,7 @@
                         <td style="width:25%;" class="bold">Crew & C.A. Assignment</td>
                         <td style="width:15%;"></td>
                         <td style="width:25%;" class="bold">Total Times</td>
-                        <td style="width:20%;" rowspan="4"><textarea name="crewComments" id="crewComments" placeholder="Crewing comments" class="roundMeLess"></textarea></td>
+                        <td style="width:20%;" rowspan="4"><div contenteditable="true" class="textAreaAlt"id="crewComments">Crewing Comments</div></td>
                     </tr>
                     <tr>
                         <td class="linePrompt">PIC:</td>
@@ -153,18 +153,18 @@
             <h3>Weather</h3>
             <table id="weather">
                 <tr>
-                    <td><input type="text" id="ICAO1a" placeholder="ICAO"></td>
-                    <td><input type="text" id="ICAO2a" placeholder="ICAO"></td>
-                    <td><input type="text" id="ICAO3a" placeholder="ICAO"></td>
-                    <td><input type="text" id="ICAO4a" placeholder="ICAO"></td>
-                    <td><input type="text" id="ICAO5a" placeholder="ICAO"></td>
+                    <td style="width: 1vw;"><input type="text" id="ICAO1a" placeholder="ICAO"></td>
+                    <td style="width: 1vw;"><input type="text" id="ICAO2a" placeholder="ICAO"></td>
+                    <td style="width: 1vw;"><input type="text" id="ICAO3a" placeholder="ICAO"></td>
+                    <td style="width: 1vw;"><input type="text" id="ICAO4a" placeholder="ICAO"></td>
+                    <td style="width: 1vw;"><input type="text" id="ICAO5a" placeholder="ICAO"></td>
                 </tr>
                 <tr>
-                    <td><textarea class="weatherBox"></textarea></td>
-                    <td><textarea class="weatherBox"></textarea></td>
-                    <td><textarea class="weatherBox"></textarea></td>
-                    <td><textarea class="weatherBox"></textarea></td>
-                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
                 <tbody class="expanded hidden" id="weatherTwo">
                     <tr>
@@ -175,11 +175,11 @@
                         <td><input type="text" id="ICAO10a" placeholder="ICAO"></td>
                     </tr>
                     <tr>
-                        <td><textarea class="weatherBox"></textarea></td>
-                        <td><textarea class="weatherBox"></textarea></td>
-                        <td><textarea class="weatherBox"></textarea></td>
-                        <td><textarea class="weatherBox"></textarea></td>
-                        <td><textarea class="weatherBox"></textarea></td>
+                        <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                        <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                        <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                        <td><div contenteditable="true" class="textAreaAlt"></div></td>
+                        <td><div contenteditable="true" class="textAreaAlt"></div></td>
                     </tr>
                 </tbody>
             </table>
@@ -197,13 +197,13 @@
                     <td style="width:22%;" class="linePrompt">NOTAM's?</td>
                     <td style="width:4%;">YES <input type="checkbox"></td>
                     <td style="width:4%;">NO <input type="checkbox"></td>
-                    <td style="width:70%;"><textarea class="weatherBox"></textarea></td>
+                    <td style="width:70%;"><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">TFR's?</td>
                     <td>YES <input type="checkbox"></td>
                     <td>NO <input type="checkbox"></td>
-                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">Overwater / coastal ops?</td>
@@ -233,7 +233,7 @@
                     <td class="linePrompt">Performance Restrictions? <div class="hoverPrompt">ⓘ<span class="popup">Hot WX / Short Field / High Elevation / etc.</span></div></td>
                     <td>YES <input type="checkbox"></td>
                     <td>NO <input type="checkbox"></td>
-                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">Noise limits &/or curfew compliance?</td>
@@ -284,7 +284,7 @@
                     <td class="linePrompt">Fee's recorded?<br><i>(regular & special event)</i></td>
                     <td>YES <input type="checkbox"></td>
                     <td>NO <input type="checkbox"></td>
-                    <td><textarea class="weatherBox"></textarea></td>
+                    <td><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">Parking available?</td>
@@ -357,7 +357,7 @@
         <table id="notes">
             <tr>
                 <td style="width:22%;" class="linePrompt">Notes:</td>
-                <td style="width:78%;"><textarea class="roundMeLess weatherBox"></textarea></td>
+                <td style="width:78%;"><div contenteditable="true" class="textAreaAlt"></div></td>
             </tr>
             <tr>
                 <td class="linePrompt">Completed on:</td>
