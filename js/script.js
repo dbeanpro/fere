@@ -48,3 +48,27 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    function clockCalc() {
+        const tValue = document.getElementById("timeEntry").value;
+        
+        if (tValue.length === 4) {
+            let hours = parseInt(tValue.slice(0, 2), 10);
+            let minutes = tValue.slice(2, 4);
+
+            hours = (hours + 12) % 24;
+
+            let adjustedHours = hours.toString().padStart(2, '0');
+            
+            let adjustTime = adjustedHours + ':' + minutes + ' ' + " Z";
+
+            document.getElementById("timeExit").textContent = adjustTime;
+        } else {
+            document.getElementById("timeExit").textContent = "invalid time format";
+        }
+    }
+    
+    document.getElementById("timeEntry").addEventListener('input', clockCalc);
+});
