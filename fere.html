@@ -242,6 +242,7 @@
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
             </table>
+            <h3>Coordination</h3>
             <table id="coordination">
                 <tr>
                     <td style="width:22%;" class="linePrompt">FBO's accurate? Contacted?</td>
@@ -294,9 +295,23 @@
                 <tr>
                     <td class="linePrompt">Is the facility IS-BAH Certified?</td>
                     <td>YES <input type="checkbox"></td>
-                    <td>NO <input type="checkbox"></td>
+                    <td>NO <input type="checkbox" onclick="reveal('isBah')"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
+                <tbody id="isBah" class="hidden">
+                    <tr>
+                        <td class="linePrompt">Does the FBO have a Fuel Quality Program?<br><i>Who's program?</i></td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Do Line Service Personnel receive ground handling / refueling training?<br><i>Who's program?</i></td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
