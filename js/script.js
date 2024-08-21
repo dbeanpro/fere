@@ -23,7 +23,6 @@ function autoPopulateICAO() {
     }
 }
 
-// Attach event listeners programmatically
 function setupEventListeners() {
     for (let i = 1; i <= 10; i++) {
         const element = document.getElementById(`ICAO${i}`);
@@ -33,5 +32,19 @@ function setupEventListeners() {
     }
 }
 
-// Run the setup function after DOM content is loaded
 document.addEventListener('DOMContentLoaded', setupEventListeners);
+
+// remove external styling on copy/paste data
+document.addEventListener("DOMContentLoaded", function() {
+    const editDivs = document.querySelectorAll('[contenteditable="true"]');
+
+    editDivs.forEach(div => {
+        div.addEventListener('paste', function (e) {
+            e.preventDefault();
+
+            let text = (e.clipboardData || window.clipboardData).getData('text');
+
+            document.execCommand('insertText', false, text);
+        });
+    });
+})

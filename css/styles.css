@@ -51,12 +51,6 @@ main,
     border-radius: 18px;
 }
 
-textarea {
-    resize: none;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
 input[type="text"] {
     border-radius: 25px;
     border: 1px solid grey;
@@ -64,18 +58,23 @@ input[type="text"] {
     text-align: center;
 }
 
+[contenteditable="true"] {
+    font-size: .8vw;
+    line-height: inherit;
+}
+
 button:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-table {
+* {
     font-size: .8vw;
 }
 
 h3 {
     padding: 1vh 0;
-    font-size: 1vw;
+    font-size: 1vw !important;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -170,9 +169,8 @@ h3 {
     justify-content:top !important;
     background-color: white;
     border: 1px solid grey;
-    border-radius: 25px;
-    padding: .5rem;
-    font-size: .9vw;
+    padding: 0 0.5vw;
+    border-radius: 6px;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
