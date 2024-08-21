@@ -50,7 +50,7 @@
                         </tr>                    
                     </tbody>
                     <tr>
-                        <td class="noPrint"><button class="roundMe" onclick="revealClass('expanded')">Continued</button></td>
+                        <td class="noPrint"><button class="roundMe noPrint" onclick="revealClass('expanded')">Continued</button></td>
                     </tr>
                 </table>
             <table id="details" class="centerFlex">
@@ -313,6 +313,58 @@
                     </tr>
                 </tbody>
             </table>
+            <h3>International <button class="roundMeLess noPrint" onclick="reveal('international')">+</button></h3>
+            <table id="intnlTable" style="width: 90%;">
+                <tbody id="international" class="hidden">
+                    <tr>
+                        <td style="width:22%;" class="linePrompt">Local handling agent / FBO confirmed on CTS?</td>
+                        <td style="width:4%;">YES <input type="checkbox"></td>
+                        <td style="width:4%;">NO <input type="checkbox"></td>
+                        <td style="width:70%;"><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Customs hours comply with entry date & time?</td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Customs hours provided to client?</td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Handling requested?</td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Permit (135) lead-time required?<br><i>How much?</i></td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
+                        <td class="linePrompt">Parking situation?<br>Special events?</td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        <table id="notes">
+            <tr>
+                <td style="width:22%;" class="linePrompt">Notes:</td>
+                <td style="width:78%;"><textarea class="roundMeLess weatherBox"></textarea></td>
+            </tr>
+            <tr>
+                <td class="linePrompt">Completed on:</td>
+                <td><input type="datetime-local" class="roundMeLess"></td>
+            </tr>
+        </table>
+        <h3><button id="PrintButton" class="roundMeLess noPrint"  onclick="window.print();return false" >Print to PDF</button></h3>
         </div>
         <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
     </main>
