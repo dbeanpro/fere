@@ -4,6 +4,24 @@ function reveal(elID) {
     target.classList.toggle("hidden");
 }
 
+function hide(elID) {
+    let target = document.getElementById(elID);
+
+    target.classList.add("hidden");
+}
+
+function reveal2(elID, elID2) {
+    let target = document.getElementById(elID);
+    let trigger = document.getElementById(elID2);
+
+    if (trigger.checked) {
+        target.classList.remove("hidden");
+    }
+    else {
+        target.classList.add("hidden");
+    }
+}
+
 function revealClass(classID) {
     let targets = document.getElementsByClassName(classID);
 

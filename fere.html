@@ -25,11 +25,11 @@
                         </tr>
                         <tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
-                            <td><input type="text" class="test" id="times20" placeholder="ETA"><input type="text" class="test" id="times1" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times2" placeholder="ETA"><input type="text" class="test" id="times3" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times4" placeholder="ETA"><input type="text" class="test" id="times5" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times6" placeholder="ETA"><input type="text" class="test" id="times7" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times8" placeholder="ETA"><input type="text" class="test" id="times9" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times20" placeholder="ETA"><input type="text" class="timeFormat" id="times1" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times2" placeholder="ETA"><input type="text" class="timeFormat" id="times3" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times4" placeholder="ETA"><input type="text" class="timeFormat" id="times5" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times6" placeholder="ETA"><input type="text" class="timeFormat" id="times7" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times8" placeholder="ETA"><input type="text" class="timeFormat" id="times9" placeholder="ETD"></td>
                         </tr>
                     <tbody id="routingTwo" class="expanded hidden">
                         <tr>
@@ -41,11 +41,11 @@
                             <td><input type="text" id="ICAO10" placeholder="ICAO"></td>
                         </tr><tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
-                            <td><input type="text" class="test" id="times10" placeholder="ETD"><input type="text" class="test" id="times11" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times12" placeholder="ETA"><input type="text" class="test" id="times13" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times14" placeholder="ETA"><input type="text" class="test" id="times15" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times16" placeholder="ETA"><input type="text" class="test" id="times17" placeholder="ETD"></td>
-                            <td><input type="text" class="test" id="times18" placeholder="ETA"><input type="text" class="test" id="times19" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times10" placeholder="ETD"><input type="text" class="timeFormat" id="times11" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times12" placeholder="ETA"><input type="text" class="timeFormat" id="times13" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times14" placeholder="ETA"><input type="text" class="timeFormat" id="times15" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times16" placeholder="ETA"><input type="text" class="timeFormat" id="times17" placeholder="ETD"></td>
+                            <td><input type="text" class="timeFormat" id="times18" placeholder="ETA"><input type="text" class="timeFormat" id="times19" placeholder="ETD"></td>
                         </tr>                    
                     </tbody>
                     <tr>
@@ -124,7 +124,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">'Red-Eye' operations? <div class="hoverPrompt">ⓘ<span class="popup">2300 - 0400 LT</span></div></td>
-                    <td>YES <input type="checkbox"></td>
+                    <td>YES <input type="checkbox" onclick="reveal2('redEyePrompt', 'redEyeQ')" id="redEyeQ"><div class="popup2 hidden" id="redEyePrompt">Seek Ops approval! <button class="exit2" onclick="hide('redEyePrompt')">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
