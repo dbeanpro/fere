@@ -12,7 +12,7 @@
         <img src="./img/SAJ_Logo.png" alt="SAJ Feasibility Report" class="roundMe">
         <div contenteditable="true" name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold textAreaAlt">Client | Tail # | Route | Date | Trip #</div>
     </header>
-    <main class="centerFlex">
+    <main class="centerFlex">        
         <div id="wrap" class="roundMeLess centerFlex">
                 <table id="routing" class="centerFlex">
                         <tr>
@@ -25,11 +25,11 @@
                         </tr>
                         <tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times1" placeholder="ETD"></td>
+                            <td><input type="text" id="times2" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times3" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times4" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times5" placeholder="ETA / ETD"></td>
                         </tr>
                     <tbody id="routingTwo" class="expanded hidden">
                         <tr>
@@ -42,11 +42,11 @@
                         </tr>
                         <tr>
                             <td class="linePrompt">ETA / ETD<br><i>(Zulu)</i></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
-                            <td><input type="text" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times6" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times7" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times8" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times9" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="times10" placeholder="ETA / ETD"></td>
                         </tr>                    
                     </tbody>
                     <tr>
@@ -66,14 +66,14 @@
                         <td class="linePrompt">PIC:</td>
                         <td><input type="text" placeholder="PIC"></td>
                         <td class="linePrompt">Flight:</td>
-                        <td><input type="text" placeholder="Total Flight Time"></td>
+                        <td><input type="text" placeholder="Total Flight Time" id="flightTime"></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td class="linePrompt">SIC:</td>
                         <td><input type="text" placeholder="SIC"></td>
                         <td class="linePrompt">Duty:</td>
-                        <td><input type="text" placeholder="Total Duty Time"></td>
+                        <td><input type="text" placeholder="Total Duty Time" id="dutyTime"></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -89,6 +89,11 @@
                         <td class="linePrompt">Min. duty off <div class="hoverPrompt">ⓘ<span class="popup">.5Hr post-flight, 10Hr rest, & 1.5Hr pre-flight. <br><i>Reduced show-time requires Ops approval</i></span></div></td>
                         <td><div class="textAreaAlt" id="timeExit"></div></td>
                         <td></td>
+                    </tr>
+                </tbody>
+                <tbody class="hidden" id="warningPrompt">
+                    <tr>
+                        <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" onclick="reveal('warningPrompt')">x</button></td>
                     </tr>
                 </tbody>
             </table>

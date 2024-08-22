@@ -49,6 +49,7 @@ header {
 main,
 #wrap {
     border-radius: 18px;
+    position: relative;
 }
 
 input[type="text"] {
@@ -218,6 +219,21 @@ h3 {
     border-radius: 6px;
     flex-direction: row !important;
     gap: 0 1vw;
+}
+
+#warningPrompt {
+    height: fit-content;
+    width: auto;
+    background-color: white;
+    color: red;
+    border-radius: 25px;
+    padding: 2vh 2vw;
+}
+
+#timesWarningExit {
+    position: relative;
+    bottom: 5vh !important;
+    left: 9vw !important;
 }
 
 #printButton {
