@@ -110,3 +110,101 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.addEventListener('input', warning);
 });
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+document.addEventListener("DOMContentLoaded", function() {
+
+    function calculateFlightTime() {
+        let totalMinutes = 0;
+
+        for (let i = 1; i <= 20; i += 2) {
+            // Get the time values from the current pair of time inputs
+            const timeStart = document.getElementById(`times${i}`).value;
+            const timeEnd = document.getElementById(`times${i + 1}`).value;
+
+            if (timeStart && timeEnd) {
+                // Extract hours and minutes from the time strings
+                const startHours = parseInt(timeStart.slice(0, 2), 10);
+                const startMinutes = parseInt(timeStart.slice(2), 10);
+                const endHours = parseInt(timeEnd.slice(0, 2), 10);
+                const endMinutes = parseInt(timeEnd.slice(2), 10);
+
+                // Convert the times to minutes
+                let startTotalMinutes = startHours * 60 + startMinutes;
+                let endTotalMinutes = endHours * 60 + endMinutes;
+
+                // If the end time is before the start time, assume it's the next day
+                if (endTotalMinutes < startTotalMinutes) {
+                    endTotalMinutes += 24 * 60;
+                }
+
+                // Calculate the difference in minutes and add it to the total
+                totalMinutes += (endTotalMinutes - startTotalMinutes);
+            }
+        }
+
+        // Convert total minutes back to HHMM format
+        const totalHours = Math.floor(totalMinutes / 60);
+        const remainingMinutes = totalMinutes % 60;
+
+        // Format the result as HHMM
+        const flightTimeString = `${String(totalHours).padStart(2, '0')}.${String(remainingMinutes).padStart(2, '0')}`;
+
+        // Update the #flightTime element
+        document.getElementById("flightTime").value = flightTimeString;
+    }
+
+    // Attach the calculation to the input event on the time fields
+    document.querySelectorAll("[id^=times]").forEach(input => {
+        input.addEventListener('input', calculateFlightTime);
+    });
+});
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// document.addEventListener("DOMContentLoaded", function() {
+
+//     function calculateFlightTime() {
+//         let totalMinutes = 0;
+
+//         for (let i = 1; i <= 10; i += 2) {
+//             // Get the time values from the current pair of time inputs
+//             const timeStart = document.getElementById(`times${i}`).value;
+//             const timeEnd = document.getElementById(`times${i + 1}`).value;
+
+//             if (timeStart && timeEnd) {
+//                 // Extract hours and minutes from the time strings
+//                 const startHours = parseInt(timeStart.slice(0, 2), 10);
+//                 const startMinutes = parseInt(timeStart.slice(2), 10);
+//                 const endHours = parseInt(timeEnd.slice(0, 2), 10);
+//                 const endMinutes = parseInt(timeEnd.slice(2), 10);
+
+//                 // Convert the times to minutes
+//                 let startTotalMinutes = startHours * 60 + startMinutes;
+//                 let endTotalMinutes = endHours * 60 + endMinutes;
+
+//                 // If the end time is before the start time, assume it's the next day
+//                 if (endTotalMinutes < startTotalMinutes) {
+//                     endTotalMinutes += 24 * 60;
+//                 }
+
+//                 // Calculate the difference in minutes and add it to the total
+//                 totalMinutes += (endTotalMinutes - startTotalMinutes);
+//             }
+//         }
+
+//         // Convert total minutes back to HHMM format
+//         const totalHours = Math.floor(totalMinutes / 60);
+//         const remainingMinutes = totalMinutes % 60;
+
+//         // Format the result as HHMM
+//         const flightTimeString = `${String(totalHours).padStart(2, '0')}.${String(remainingMinutes).padStart(2, '0')}`;
+
+//         // Update the #flightTime element
+//         document.getElementById("flightTime").value = flightTimeString;
+//     }
+
+//     // Attach the calculation to the input event on the time fields
+//     document.querySelectorAll("[id^=times]").forEach(input => {
+//         input.addEventListener('input', calculateFlightTime);
+//     });
+// });

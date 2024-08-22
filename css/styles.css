@@ -136,6 +136,12 @@ h3 {
     border-bottom: 1px solid grey;
 }
 
+.test {
+    flex: 1 1 auto;
+    max-width: 38%;
+    min-width: 0;
+}
+
 .hidden {
     display: none;
     visibility: hidden;
