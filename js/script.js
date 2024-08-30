@@ -68,115 +68,223 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-document.addEventListener('DOMContentLoaded', function() {
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    function clockCalc() {
-        const tValue = document.getElementById("timeEntry").value;
-        
-        if (tValue.length === 4) {
-            let hours = parseInt(tValue.slice(0, 2), 10);
-            let minutes = tValue.slice(2, 4);
+function populate(var1, var2, var3, var4, var5) {
+    let ap1E = document.getElementById(var1);
+    let ap2E = document.getElementById(var2);
+    let etdE = document.getElementById(var3);
+    let etaE = document.getElementById(var4);
+    let ddE = document.getElementById(var5);
+    let rowReveal = document.getElementById("TESTING6");
+    let extraRow = document.getElementById("expandedRoute");
+    
+    let ap1 = ap1E.value;
+    let ap2 = ap2E.value;
+    let etd = etdE.value;
+    let eta = etaE.value;
+    let dd = (ddE.value);
 
-            hours = (hours + 12) % 24;
+    for (let i = 1; i <= 10; i++) {
+        let leg = document.getElementById(`TESTING${i}`);
+        let times = document.getElementById(`TESTING${i}A`);
+        let dates = document.getElementById(`TESTING${i}B`);
 
-            let adjustedHours = hours.toString().padStart(2, '0');
-            
-            let adjustTime = adjustedHours + ':' + minutes + ' ' + " Z";
-
-            document.getElementById("timeExit").textContent = adjustTime;
-        } else {
-            document.getElementById("timeExit").textContent = "invalid time format";
+        if (leg.textContent === "") {
+            leg.textContent = ap1 + " -> " + ap2;
+            times.textContent = etd + " / " + eta;
+            dates.textContent = ddE.value;
+            leg.setAttribute("name", dd);
+            break;
         }
+    }
+
+    if (rowReveal.textContent !== "") {
+        extraRow.classList.remove("hidden");
     }
     
-    document.getElementById("timeEntry").addEventListener('input', clockCalc);
-});
+    ap1E.value = ap2;
+    ap2E.value = "";
+    etdE.value = "";
+    etaE.value = "";
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-document.addEventListener("DOMContentLoaded", function() {
-
-    function warning() {
-        const flightTime = document.getElementById("flightTime").value;
-        const dutyTime = document.getElementById("dutyTime").value;
-
-        let flightTimeFont = document.getElementById("flightTime");
-        let dutyTimeFont = document.getElementById("dutyTime");
-
-        const warningPrompt = document.getElementById("warningPrompt");
-        const flightPrompt = document.getElementById("flight1");
-        const dutyPrompt = document.getElementById("duty1");
-
-        // Reset visibility and colors before checking conditions
-        warningPrompt.classList.add("hidden");
-        flightPrompt.classList.add("hidden");
-        dutyPrompt.classList.add("hidden");
-        flightTimeFont.style.color = "black";
-        dutyTimeFont.style.color = "black";
-
-        // Check flight time
-        if (flightTime >= 10) {
-            flightTimeFont.style.color = "red";
-            warningPrompt.classList.remove("hidden");
-            flightPrompt.classList.remove("hidden");
+    ap2E.focus();
+    let ddDate = new Date(ddE.value);
+    let etdNumber = parseInt(etd, 10);
+    let etaNumber = parseInt(eta, 10);
+        if (etaNumber < etdNumber) {
+            ddDate.setDate(ddDate.getDate() + 1);
         }
+        ddE.value = ddDate.toISOString().split('T')[0];
+}
 
-        // Check duty time
-        if (dutyTime >= 13.5) {
-            dutyTimeFont.style.color = "red";
-            warningPrompt.classList.remove("hidden");
-            dutyPrompt.classList.remove("hidden");
-        }
-    }
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    document.addEventListener('input', warning);
-});
+function getDayNumber(dateString) {
+    const date = new Date(dateString);
+    return Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+}
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-document.addEventListener("DOMContentLoaded", function() {
+function dutyCalculator(startTime) {
+    const window = startTime + 840;
+        // startTime = duty On time in Epoch. ||| window = duty off time in Epoch.
+    return window;
+}
 
-    function calculateFlightTime() {
-        let totalMinutes = 0;
+function convertTimeToHours(timeString) {
+    let [hours, minutes] = timeString.split(':').map(Number);
+    return hours + (minutes / 60);
+}
 
-        for (let i = 1; i <= 20; i += 2) {
-            // Get the time values from the current pair of time inputs
-            const timeStart = document.getElementById(`times${i}`).value;
-            const timeEnd = document.getElementById(`times${i + 1}`).value;
+function totalDutyTimeCalc(dutyOn, lastArrival) {
+        let dutyOffTime = lastArrival + 30;
+        let totalDutyTimeInMinutes = dutyOffTime - dutyOn;
 
-            if (timeStart && timeEnd) {
-                // Extract hours and minutes from the time strings
-                const startHours = parseInt(timeStart.slice(0, 2), 10);
-                const startMinutes = parseInt(timeStart.slice(2), 10);
-                const endHours = parseInt(timeEnd.slice(0, 2), 10);
-                const endMinutes = parseInt(timeEnd.slice(2), 10);
+        return convertMinutesToTime2(totalDutyTimeInMinutes);
+}
 
-                // Convert the times to minutes
-                let startTotalMinutes = startHours * 60 + startMinutes;
-                let endTotalMinutes = endHours * 60 + endMinutes;
+function convertMinutesToTime(convertedValue) {
+    let milliseconds = convertedValue * 60 * 1000;
 
-                // If the end time is before the start time, assume it's the next day
-                if (endTotalMinutes < startTotalMinutes) {
-                    endTotalMinutes += 24 * 60;
-                }
+    let date = new Date(milliseconds);
 
-                // Calculate the difference in minutes and add it to the total
-                totalMinutes += (endTotalMinutes - startTotalMinutes);
-            }
-        }
+    let hours = date.getUTCHours().toString().padStart(2, '0');
+    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
 
-        // Convert total minutes back to HHMM format
-        const totalHours = Math.floor(totalMinutes / 60);
-        const remainingMinutes = totalMinutes % 60;
+    return `${hours}:${minutes}`;
+}
 
-        // Format the result as HHMM
-        const flightTimeString = `${String(totalHours).padStart(2, '0')}.${String(remainingMinutes).padStart(2, '0')}`;
+function convertMinutesToTime2(convertedValue) {
+    let totalHours = Math.floor(convertedValue / 60);
+    let minutes = convertedValue % 60;
+    
+    let hourString = totalHours.toString().padStart(2, '0');
+    let minuteString = minutes.toString().padStart(2, '0');
 
-        // Update the #flightTime element
-        document.getElementById("flightTime").value = flightTimeString;
-    }
+    return `${hourString}:${minuteString}`;
+}
 
-    // Attach the calculation to the input event on the time fields
-    document.querySelectorAll("[id^=times]").forEach(input => {
-        input.addEventListener('input', calculateFlightTime);
-    });
-});
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function timeCalc() {
+    let currentDutyDayFlightTime = 0;
+    let lastArrivalTimeInMinutes = null;
+    let maxDutyDayStart = null;
+    let dutyDayCount = 1;
+    let dutyDayFlightTimes = [];
+    let dutyDayTimes = [];
+    let dutyOffTimes = [];
+    let totalDutyTimes = [];
+
+    for (let i = 1; i <= 10; i++) {
+        let legElement = document.getElementById(`TESTING${i}`);
+            let dateOfDepartureRaw = legElement.getAttribute("name");
+                // Date of departure is entered by user and assigned as name attribute. 
+                if (!dateOfDepartureRaw) continue;
+
+            let dateOfDepartureConverted = getDayNumber(dateOfDepartureRaw) * 24 * 60;
+                // converting raw to epoch.
+
+        let departureAndArrivalTimes = document.getElementById(`TESTING${i}A`).textContent;
+            // User enters in hhmm format & etd/eta are concat'd. EG "hhmm hhmm".
+            if (!departureAndArrivalTimes) continue;
+
+            let departureTime = departureAndArrivalTimes.slice(0, 4);
+            let arrivalTime = departureAndArrivalTimes.slice(-4);
+
+                let departureHours = parseInt(departureTime.slice(0, 2));
+                let departureMinutes = parseInt(departureTime.slice(2, 4));
+                let arrivalHours = parseInt(arrivalTime.slice(0, 2));
+                let arrivalMinutes = parseInt(arrivalTime.slice(2, 4));
+
+                    let departureInMinutes = departureHours * 60 + departureMinutes;
+                    let arrivalInMinutes = arrivalHours * 60 + arrivalMinutes;
+                        // converting hh to mmm & adding resultant mm's for total mmm of ETD & ETA.
+                    
+                        if (arrivalHours < departureHours || (arrivalHours === departureHours && arrivalMinutes < departureMinutes)) {
+                            arrivalInMinutes += 24 * 60;
+                        }
+                            // accounting for midnight rollover
+
+                        let timeOfDepartureConverted = dateOfDepartureConverted + departureInMinutes;
+                        let dateOfArrivalConverted = dateOfDepartureConverted + arrivalInMinutes;
+                            // adding mmm's to Epoch value of date.
+
+                            if (lastArrivalTimeInMinutes === null || (timeOfDepartureConverted - lastArrivalTimeInMinutes) >= 12 * 60) {
+                                if (lastArrivalTimeInMinutes !== null) {
+                                        // Log the total duty time for the previous day
+                                    let totalDutyTime = totalDutyTimeCalc(maxDutyDayStart, lastArrivalTimeInMinutes);
+                                    totalDutyTimes.push(totalDutyTime); 
+                                        // Push a new entry for the previous day
+
+                                        // Log the flight time for the previous duty day
+                                    dutyDayFlightTimes.push(currentDutyDayFlightTime); 
+                                        // Store the current day's flight time
+                                }
+                        
+                                // Start a new duty day
+                                maxDutyDayStart = timeOfDepartureConverted - 90; // Start new duty day
+                                    dutyOnConverted = convertMinutesToTime(maxDutyDayStart);
+                                    dutyDayTimes.push(dutyOnConverted);
+                                    currentDutyDayFlightTime = 0; // Reset flight time for the new day
+                            }
+                        
+                            // Calculate and add the flight time to the current duty day
+                            let flightTimeInMinutes = arrivalInMinutes - departureInMinutes;
+                                if (flightTimeInMinutes < 0) {
+                                    flightTimeInMinutes += 24 * 60;
+                                }
+                        
+                            let flightTimeInHours = flightTimeInMinutes / 60;
+                            currentDutyDayFlightTime += flightTimeInHours;
+                        
+                            // Update lastArrivalTimeInMinutes for the next iteration
+                            lastArrivalTimeInMinutes = dateOfArrivalConverted;
+                        
+                            // Update the total duty time for the current duty day
+                            let totalDutyTime = totalDutyTimeCalc(maxDutyDayStart, lastArrivalTimeInMinutes);
+                                if (totalDutyTimes.length > 0) {
+                                    totalDutyTimes[totalDutyTimes.length - 1] = totalDutyTime; // Update the last entry
+                                } else {
+                                    totalDutyTimes.push(totalDutyTime); // Start the first entry
+                                }
+                        
+                            // Check if the current duty day exceeds the allowed flight time and warn if necessary
+                            if (currentDutyDayFlightTime >= 10) {
+                                let warning1 = document.getElementById("warningPrompt");
+                                let flightWarning = document.getElementById("flight1");
+                                    warning1.classList.remove("hidden");
+                                    flightWarning.classList.remove("hidden");
+                            }
+
+                            let totalDutyTimeInHours = convertTimeToHours(totalDutyTime);
+                                if (totalDutyTimeInHours >= 13.5) {
+                                    let warning2 = document.getElementById("warningPrompt");
+                                    let dutyWarning = document.getElementById("duty1");
+                                        warning2.classList.remove("hidden");
+                                        dutyWarning.classList.remove("hidden");
+                                }
+                        }
+                        
+                        // After loop ends, log the final day's duty time and flight time if there are remaining legs
+                        if (lastArrivalTimeInMinutes !== null) {
+                            let totalDutyTime = totalDutyTimeCalc(maxDutyDayStart, lastArrivalTimeInMinutes);
+                                totalDutyTimes[totalDutyTimes.length - 1] = totalDutyTime;
+                        
+                            // Log the final day's flight time
+                            dutyDayFlightTimes.push(currentDutyDayFlightTime);
+                        }
+                        
+                        // Update the DOM elements with the results
+                        let flightTimeElement = document.getElementById("flightTime");
+                        flightTimeElement.value = dutyDayFlightTimes.join(" | ");
+                        
+                        let dutyTimeElement = document.getElementById("timeEntry");
+                        dutyTimeElement.value = dutyDayTimes.join(" | ");
+                        
+                        let dutyOffElement = document.getElementById("timeExit");
+                        dutyOffElement.textContent = dutyOffTimes.join(" | ");
+                        
+                        let totalDutyElement = document.getElementById("dutyTime");
+                        totalDutyElement.value = totalDutyTimes.join(" | ");
+}

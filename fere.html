@@ -14,7 +14,127 @@
     </header>
     <main class="centerFlex">        
         <div id="wrap" class="roundMeLess centerFlex">
+            <table style="width: 30%;" class="noPrint">
+                    <tr style="width: 100%;">
+                        <td><input type="date" id="dutyDay" placeholder="Date of Departure"></td>
+                        <td><input type="text" maxlength="4" placeholder="AP1" id="testAP1"></td>
+                        <td><input type="text" maxlength="4" placeholder="AP2" id="testAP2"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Date of departure</b></td>
+                        <td><input type="text" maxlength="4" placeholder="ETD" id="testTime1"></td>
+                        <td><input type="text" maxlength="4" placeholder="ETA" id="testTime2"></td>
+                    </tr>
+            </table>
+            <button class="noPrint" id="testButton" onclick="populate('testAP1', 'testAP2', 'testTime1', 'testTime2', 'dutyDay'); timeCalc();">Add Leg</button>
+            <table>
                 <table id="routing" class="centerFlex">
+                        <tbody style="width: 100%;">
+                            <tr>
+                                <td style="width: 5%;" class="linePrompt">Route <br>eta/etd</td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING1B"></div>
+                                    <div id="TESTING1"></div>
+                                    <div id="TESTING1A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING2B"></div>
+                                    <div id="TESTING2"></div>
+                                    <div id="TESTING2A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING3B"></div>
+                                    <div id="TESTING3"></div>
+                                    <div id="TESTING3A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING4B"></div>
+                                    <div id="TESTING4"></div>
+                                    <div id="TESTING4A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING5B"></div>
+                                    <div id="TESTING5"></div>
+                                    <div id="TESTING5A"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody style="width: 100%;" class="hidden" id="expandedRoute">
+                            <tr>
+                                <td style="width: 5%;" class="linePrompt">Route <br>eta/etd<br>date of dep.</td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING6B"></div>
+                                    <div id="TESTING6"></div>
+                                    <div id="TESTING6A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING7B"></div>
+                                    <div id="TESTING7"></div>
+                                    <div id="TESTING7A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING8B"></div>
+                                    <div id="TESTING8"></div>
+                                    <div id="TESTING8A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING9B"></div>
+                                    <div id="TESTING9"></div>
+                                    <div id="TESTING9A"></div>
+                                </td>
+                                <td class="textAreaAlt" style="width: 19%;">
+                                    <div class="dateBox" id="TESTING10B"></div>
+                                    <div id="TESTING10"></div>
+                                    <div id="TESTING10A"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <table id="details" class="centerFlex">
+                            <tbody id="detailsContainer">
+                                <tr>
+                                    <td style="width:15%;"></td>
+                                    <td style="width:25%;" class="bold">Crew & C.A. Assignment</td>
+                                    <td style="width:15%;"></td>
+                                    <td style="width:25%;" class="bold">Total Times <i>(zulu)</i></td>
+                                    <td style="max-width:20%;" rowspan="4"><div contenteditable="true" class="textAreaAlt"id="crewComments">Crewing Comments</div></td>
+                                </tr>
+                                <tr>
+                                    <td class="linePrompt">PIC:</td>
+                                    <td><input type="text" placeholder="PIC"></td>
+                                    <td class="linePrompt">Flight:</td>
+                                    <td><input type="text" placeholder="Total Flight Time" id="flightTime"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="linePrompt">SIC:</td>
+                                    <td><input type="text" placeholder="SIC"></td>
+                                    <td class="linePrompt">Duty:</td>
+                                    <td><input type="text" placeholder="Total Duty Time" id="dutyTime"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="linePrompt">Cabin Attendant</td>
+                                    <td><input type="text" placeholder="C.A."></td>
+                                    <td class="linePrompt">Duty on (HHMM):</td>
+                                    <td><input type="text" placeholder="duty on" id="timeEntry"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="linePrompt">Min. duty off <div class="hoverPrompt">ⓘ<span class="popup">.5Hr post-flight, 10Hr rest, & 1.5Hr pre-flight. <br><i>Reduced show-time requires Ops approval</i></span></div></td>
+                                    <td><div class="textAreaAlt" id="timeExit"></div></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tbody class="hidden" id="warningPrompt">
+                                <tr>
+                                    <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" onclick="reveal('warningPrompt')">X</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                <!-- </table>
+                <table id="routing" class="centerFlex hidden">
                         <tr>
                             <td class="linePrompt">Airport Identifier</td>
                             <td><input type="text" id="ICAO1" placeholder="ICAO"></td>
@@ -51,8 +171,8 @@
                     <tr>
                         <td class="noPrint"><button class="roundMe noPrint" onclick="revealClass('expanded')">Continued</button></td>
                     </tr>
-                </table>
-            <table id="details" class="centerFlex">
+                </table> -->
+            <!-- <table id="details" class="centerFlex">
                 <tbody id="detailsContainer">
                     <tr>
                         <td style="width:15%;"></td>
@@ -95,7 +215,7 @@
                         <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" onclick="reveal('warningPrompt')">X</button></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
             <h3>Details</h3>
             <table id="detailsTwo">
                 <tr>
@@ -379,5 +499,5 @@
         </div>
         <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
     </main>
+    </html>
 </body>
-</html>

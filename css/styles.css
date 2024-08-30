@@ -153,6 +153,10 @@ h3 {
     min-width: 0;
 }
 
+.ddEven {
+    background-color: rgba(226, 226, 226, 0.842) !important;
+}
+
 .hidden {
     display: none;
     visibility: hidden;
@@ -202,6 +206,11 @@ h3 {
     border-radius: 6px;
 }
 
+.dateBox {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ID'S */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -219,12 +228,18 @@ h3 {
 
 #routing {
     table-layout: fixed;
+    min-width: 70%;
 }
 
 #details {
     table-layout: fixed;
     width: 100%;
     text-align: center;
+}
+
+.textAreaAlt div {
+    text-align: center;
+    width: 100%;
 }
 
 #detailsTwo,
@@ -267,7 +282,6 @@ h3 {
 
 #printButton {
     font-weight: 100 !important;
-
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* MEDIA QUERIES */
